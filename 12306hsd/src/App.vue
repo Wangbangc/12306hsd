@@ -2,7 +2,7 @@
 import { useRoute } from 'vue-router'
 import Header from './components/header/index.vue'
 import { ref, watch, onMounted, reactive } from 'vue'
-
+import Aside from './components/aside/index'
 
 const isLogin = ref(false)
 const route = useRoute()
@@ -20,15 +20,20 @@ watch(
 </script>
 <template>
   <div class="common-layout">
-    <Layout class="page-wrapper" v-if="isLogin" >
+    <Layout    v-if="isLogin" >
       <Header class="full-width-header" >
-      </Header></Layout>
+      </Header>
+      <Layout class="page-wrapper" v-if="isLogin">
+<Aside>
+</Aside>
+        <router-view/>
+      </Layout>
+    </Layout>
+    <Layout v-if="!isLogin">
+      <router-view/>
+    </Layout>
   </div>
 
-
-  <Layout >
-    <router-view/>
-  </Layout>
 </template>
 
 <style>
@@ -41,8 +46,10 @@ watch(
 }
 .page-wrapper {
   display: flex;
-  flex-direction: column;
-  height: 100vh; /* Ensure full viewport height */
+  height: 100vh;
+}
+.wh{
+
 }
 
 .full-width-header {
