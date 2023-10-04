@@ -19,9 +19,12 @@ watch(
 
 </script>
 <template>
-  <Layout class="page-wrapper" v-if="isLogin" ><Header >
+  <div class="common-layout">
+    <Layout class="page-wrapper" v-if="isLogin" >
+      <Header class="full-width-header" >
+      </Header></Layout>
+  </div>
 
-  </Header></Layout>
 
   <Layout >
     <router-view/>
@@ -36,17 +39,13 @@ watch(
   text-align: center;
   color: #2c3e50;
 }
-
-nav {
-  padding: 30px;
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Ensure full viewport height */
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+.full-width-header {
+  flex: 1; /* Take up remaining space */
 }
 </style>

@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Login from '../views/login/index.vue'
-
+import TicketSearch from '../views/ticket-search/index.vue'
  const routes = [
   {
     path: '/',
@@ -13,6 +13,10 @@ import Login from '../views/login/index.vue'
          name: 'login',
          component: Login,
 
+     }
+     ,{path: '/ticketSearch',
+     name: 'ticketSearch',
+         component: TicketSearch,
      },
   {
     path: '/about',
