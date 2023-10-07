@@ -20,15 +20,15 @@
           >
             <div class="login-show" v-if="currentAction === 'login'">
               <h1 class="title">登录</h1>
-            <el-form  label-width="50px">
+            <el-form name="loginform" :model="user"  label-width="50px" class="fff" action="">
               <el-form-item label="用户">
-                <el-input  placeholder="username" />
+                <el-input v-model="user.username" placeholder="username" />
               </el-form-item>
               <el-form-item label="密码">
-                <el-input placeholder="userpassword"  />
+                <el-input v-model="user.password" placeholder="userpassword"  />
               </el-form-item>
               <el-form-item>
-                <el-button @click="loginone" type="primary" >登入</el-button>
+                <el-button name="loginbutton" @click="loginone" type="primary" >登入</el-button>
               </el-form-item>
             </el-form>
             </div>
@@ -68,18 +68,34 @@
   </div>
 </template>
 <script >
-
+import { fetchLogin} from '@/service/index.js'
 export default {
   data(){
     return{
       currentAction: 'login',
-      manager:{
+      user:{
+        username:"admin",
+        password:"admin123456"
       }
     }
   },
   methods:{
-    loginone(){
-      this.$router.push('/ticketSearch')
+
+    loginone:function (){
+
+      fetchLogin(this.user).then((res)=>{
+
+        console.log(res)
+        if(!res.success){
+          return message.error(res.message)
+        }
+        else {
+          this.$router.push('/ticketSearch')
+        }
+      }).catch((err)=>{
+        console.log("666")
+        console.log(err)
+      })
     }
   }
 }

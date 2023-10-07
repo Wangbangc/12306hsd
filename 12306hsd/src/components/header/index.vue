@@ -27,7 +27,6 @@
             ><li>团队信息</li></el-button>
             </el-col>
             <el-col :span="6"> <div class="about-content">
-
             </div></el-col>
           </el-row>
         </el-col>
