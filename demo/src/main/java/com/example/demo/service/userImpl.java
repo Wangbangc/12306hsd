@@ -21,4 +21,12 @@ public class userImpl implements userInterface{
     public List<t_user_0> selrctAA() {
       return t_user_0Mapper.selrctAA();
     }
+
+    @Override
+    public boolean insert(t_user_0 record) {
+        if ( t_user_0Mapper.insert(record)==1){
+            return true;
+        }
+        return false;
+    }
 }

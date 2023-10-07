@@ -33,26 +33,29 @@
             </el-form>
             </div>
             <div class="register-show" v-else><h1 class="title">注册</h1>
-              <el-form  label-width="70px">
+              <el-form   :model="user"  label-width="70px">
                 <el-form-item label="用户名">
-                  <el-input  placeholder="username" />
+                  <el-input  v-model="user.username"   placeholder="username" />
                 </el-form-item>
                 <el-form-item label="密码">
-                  <el-input placeholder="userpassword"  />
+                  <el-input v-model="user.password" placeholder="userpassword"  />
                 </el-form-item>
                 <el-form-item label="姓名">
-                  <el-input placeholder="userpassword"  />
+                  <el-input v-model="user.realName" placeholder="userpassword"  />
                 </el-form-item>
-                <el-form-item label="证件类型">
+                <el-form-item  label="证件类型">
                   <el-select placeholder="中国居民身份证">
-                    <el-option label="中国居民身份证" value="1" />
+                    <el-option v-model="user.idType" label="中国居民身份证" value="1" />
                   </el-select>
                 </el-form-item>
+                <el-form-item label="证件号">
+                  <el-input v-model="user.idCard" placeholder=""  />
+                </el-form-item>
                 <el-form-item label="手机号">
-                  <el-input placeholder="phone"  />
+                  <el-input placeholder="phone" v-model="user.phone"  />
                 </el-form-item>
                 <el-form-item label="邮箱">
-                  <el-input placeholder="mail"  />
+                  <el-input placeholder="mail" v-model="user.mail" />
                 </el-form-item>
                 <el-form-item>
                   <el-button @click="registerone" type="primary" >注册</el-button>
@@ -75,7 +78,12 @@ export default {
       currentAction: 'login',
       user:{
         username:"admin",
-        password:"admin123456"
+        password:"admin123456",
+        realName: '',
+        idType: 0,
+        idCard: '',
+        phone: '',
+        mail: ''
       }
     }
   },

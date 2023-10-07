@@ -1,14 +1,19 @@
 <template>
-  <div  :style="{
+  <div class="asi" :style="{
       position: 'relative',
-      minWidth: isCollapse ? '200px' : '80px',
-      height: 'calc(100vh - 64px)'
+      minWidth: isCollapse ? '240px' : '240px',
+      height: 'calc(100vh )',
     }" >
-        <el-aside width="200px" class="aside">
-          <el-radio-group class="radio" v-model="isCollapse" style="margin-bottom: 20px">
-            <el-radio-button type="link" :label="false">菜单</el-radio-button>
-            <el-radio-button class="radiobutton" :label="true">隐藏</el-radio-button>
-          </el-radio-group>
+    <el-row class="bom">
+      <el-col :span="12"> <div>
+        <el-button class="logout" @click="Coll"  :icon="View" circle />
+      </div></el-col>
+      <el-col :span="12">  <div>
+        <el-button class="logout" @click="logout" :icon="SwitchButton" circle />
+      </div></el-col>
+    </el-row>
+        <el-aside width="240px" class="aside">
+
           <el-menu
               background-color="#e6e9ee"
               default-active="2"
@@ -71,8 +76,15 @@
             </el-sub-menu>
          </el-menu>
         </el-aside>
+
   </div>
 </template>
+<script  setup>
+import {
+  View,
+ SwitchButton
+} from '@element-plus/icons-vue'
+</script>
 <script>
 export default {
   data(){
@@ -82,6 +94,16 @@ export default {
     }
   },
   methods:{
+    Coll(){if ( this.isCollapse){
+      this.isCollapse=false;
+    }else {
+      this.isCollapse=true;
+    }
+
+    },
+    logout(){
+      this.$router.push('/login')
+    },
 ticketSearch(){
   this.$router.push('/ticketSearch')
 },
@@ -99,12 +121,24 @@ ticketSearch(){
 </script>
 
 <style>
+.asi{
+  background-color: #e6e9ee;
+}
+.bom{
+
+  justify-content: flex-end !important;
+  padding: 10px!important;
+}
+.logout{
+  background: transparent !important;
+  border: none !important;
+}
 .aside{
   height: calc(100vh - 64px);
   background-color: #e6e9ee;
 }
 .el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 200px;
+  width: 240px;
   min-height: 400px;
   border-right: none;
 

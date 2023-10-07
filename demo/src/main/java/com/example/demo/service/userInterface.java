@@ -9,4 +9,5 @@ import java.util.List;
 public interface userInterface {
     t_user_0 login(t_user_0 user);
     List<t_user_0> selrctAA();
+    boolean insert(t_user_0 record);
 }
