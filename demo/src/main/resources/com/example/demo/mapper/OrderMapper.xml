@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.OrderMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.Order" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="order_sn" property="orderSn" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="train_id" property="trainId" jdbcType="BIGINT" />
+    <result column="train_number" property="trainNumber" jdbcType="VARCHAR" />
+    <result column="riding_date" property="ridingDate" jdbcType="DATE" />
+    <result column="departure" property="departure" jdbcType="VARCHAR" />
+    <result column="arrival" property="arrival" jdbcType="VARCHAR" />
+    <result column="departure_time" property="departureTime" jdbcType="TIMESTAMP" />
+    <result column="arrival_time" property="arrivalTime" jdbcType="TIMESTAMP" />
+    <result column="source" property="source" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="order_time" property="orderTime" jdbcType="TIMESTAMP" />
+    <result column="pay_type" property="payType" jdbcType="INTEGER" />
+    <result column="pay_time" property="payTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="del_flag" property="delFlag" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, order_sn, user_id, username, train_id, train_number, riding_date, departure, 
+    arrival, departure_time, arrival_time, source, status, order_time, pay_type, pay_time, 
+    create_time, update_time, del_flag
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_order_0
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_order_0
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.entity.Order" >
+    insert into t_order_0 (id, order_sn, user_id, 
+      username, train_id, train_number, 
+      riding_date, departure, arrival, 
+      departure_time, arrival_time, source, 
+      status, order_time, pay_type, 
+      pay_time, create_time, update_time, 
+      del_flag)
+    values (#{id,jdbcType=BIGINT}, #{orderSn,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, 
+      #{username,jdbcType=VARCHAR}, #{trainId,jdbcType=BIGINT}, #{trainNumber,jdbcType=VARCHAR}, 
+      #{ridingDate,jdbcType=DATE}, #{departure,jdbcType=VARCHAR}, #{arrival,jdbcType=VARCHAR}, 
+      #{departureTime,jdbcType=TIMESTAMP}, #{arrivalTime,jdbcType=TIMESTAMP}, #{source,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{orderTime,jdbcType=TIMESTAMP}, #{payType,jdbcType=INTEGER}, 
+      #{payTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{delFlag,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.entity.Order" >
+    insert into t_order_0
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orderSn != null" >
+        order_sn,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="trainId != null" >
+        train_id,
+      </if>
+      <if test="trainNumber != null" >
+        train_number,
+      </if>
+      <if test="ridingDate != null" >
+        riding_date,
+      </if>
+      <if test="departure != null" >
+        departure,
+      </if>
+      <if test="arrival != null" >
+        arrival,
+      </if>
+      <if test="departureTime != null" >
+        departure_time,
+      </if>
+      <if test="arrivalTime != null" >
+        arrival_time,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="orderTime != null" >
+        order_time,
+      </if>
+      <if test="payType != null" >
+        pay_type,
+      </if>
+      <if test="payTime != null" >
+        pay_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="orderSn != null" >
+        #{orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="trainId != null" >
+        #{trainId,jdbcType=BIGINT},
+      </if>
+      <if test="trainNumber != null" >
+        #{trainNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="ridingDate != null" >
+        #{ridingDate,jdbcType=DATE},
+      </if>
+      <if test="departure != null" >
+        #{departure,jdbcType=VARCHAR},
+      </if>
+      <if test="arrival != null" >
+        #{arrival,jdbcType=VARCHAR},
+      </if>
+      <if test="departureTime != null" >
+        #{departureTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="arrivalTime != null" >
+        #{arrivalTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="orderTime != null" >
+        #{orderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payType != null" >
+        #{payType,jdbcType=INTEGER},
+      </if>
+      <if test="payTime != null" >
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.entity.Order" >
+    update t_order_0
+    <set >
+      <if test="orderSn != null" >
+        order_sn = #{orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="trainId != null" >
+        train_id = #{trainId,jdbcType=BIGINT},
+      </if>
+      <if test="trainNumber != null" >
+        train_number = #{trainNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="ridingDate != null" >
+        riding_date = #{ridingDate,jdbcType=DATE},
+      </if>
+      <if test="departure != null" >
+        departure = #{departure,jdbcType=VARCHAR},
+      </if>
+      <if test="arrival != null" >
+        arrival = #{arrival,jdbcType=VARCHAR},
+      </if>
+      <if test="departureTime != null" >
+        departure_time = #{departureTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="arrivalTime != null" >
+        arrival_time = #{arrivalTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="orderTime != null" >
+        order_time = #{orderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payType != null" >
+        pay_type = #{payType,jdbcType=INTEGER},
+      </if>
+      <if test="payTime != null" >
+        pay_time = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.entity.Order" >
+    update t_order_0
+    set order_sn = #{orderSn,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=BIGINT},
+      username = #{username,jdbcType=VARCHAR},
+      train_id = #{trainId,jdbcType=BIGINT},
+      train_number = #{trainNumber,jdbcType=VARCHAR},
+      riding_date = #{ridingDate,jdbcType=DATE},
+      departure = #{departure,jdbcType=VARCHAR},
+      arrival = #{arrival,jdbcType=VARCHAR},
+      departure_time = #{departureTime,jdbcType=TIMESTAMP},
+      arrival_time = #{arrivalTime,jdbcType=TIMESTAMP},
+      source = #{source,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      order_time = #{orderTime,jdbcType=TIMESTAMP},
+      pay_type = #{payType,jdbcType=INTEGER},
+      pay_time = #{payTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
