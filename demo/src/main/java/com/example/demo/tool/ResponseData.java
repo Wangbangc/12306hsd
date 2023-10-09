@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 public class ResponseData<T> {
     T data;
+
         private Map<String, Object> responseData;
         public ResponseData(t_user_0 user) {
             responseData = new HashMap<>();
