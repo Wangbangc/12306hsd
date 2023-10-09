@@ -24,8 +24,8 @@
           >
             <el-sub-menu index="1">
               <template #title>
-                <el-icon><location /></el-icon>
-                <span>车票管理</span>
+
+                <span> <el-icon><TakeawayBox /></el-icon>车票管理</span>
               </template>
               <el-menu-item-group>
                 <el-menu-item index="1-1"><el-button
@@ -39,8 +39,8 @@
             </el-sub-menu>
             <el-sub-menu index="2">
               <template #title>
-                <el-icon><location /></el-icon>
-                <span>信息管理</span>
+
+                <span>  <el-icon><UserFilled /></el-icon>信息管理</span>
               </template>
               <el-menu-item-group>
                 <el-menu-item index="2-1"><el-button
@@ -62,8 +62,8 @@
             </el-sub-menu>
             <el-sub-menu index="3">
               <template #title>
-                <el-icon><location /></el-icon>
-                <span>订单管理</span>
+
+                <span><el-icon><Document /></el-icon>订单管理</span>
               </template>
               <el-menu-item-group>
                 <el-menu-item index="3-1"><el-button
@@ -82,7 +82,10 @@
 <script  setup>
 import {
   View,
- SwitchButton
+ SwitchButton,
+  Document,
+  TakeawayBox,
+  UserFilled
 } from '@element-plus/icons-vue'
 </script>
 <script>
